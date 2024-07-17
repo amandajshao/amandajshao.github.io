@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://amandashao.github.io/al-folio/sitemap.xml
+Sitemap: https://amandashao.github.io/sitemap.xml
