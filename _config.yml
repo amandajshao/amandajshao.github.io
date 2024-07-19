@@ -24,9 +24,9 @@ impressum_path: # set to path to include impressum link in the footer, use the s
 back_to_top: true # set to false to disable the back to top button
 
 nav:
-  # - title: "<img src='/assets/img/logo.png' alt='Logo' style='height:30px;'>"
-  #   url: "https://target-website.com"
-  #   external: true
+  - title: "<img src='/assets/img/logo.png' alt='Logo' style='height:30px;'>"
+    url: "https://open-trust-lab.vercel.app/"
+    external: true
   - title: "Home"
     url: "/"
     external: false
