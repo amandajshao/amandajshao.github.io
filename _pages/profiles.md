@@ -2,7 +2,7 @@
 layout: profiles
 permalink: /people/
 title: Kaleidoscopic Lab
-description: Kaleidoscopic Laboratory 
+description: Kaleidoscopic Laboratory
 nav: false
 nav_order: 3
 
@@ -11,16 +11,16 @@ profiles:
   # and create one content file for each profile inside _pages/
   - align: left
     image: Profile.JPG
-    # content: 
+    # content:
     image_circular: false # crops the image to make it circular
   - align: left
     image: Profile.JPG
     # content: about_einstein.md
     image_circular: false # crops the image to make it circular
-    # more_info: 
+    # more_info:
   - align: center
     image: Profile.JPG
     # content: about_einstein.md
     image_circular: false # crops the image to make it circular
-    # more_info: 
+    # more_info:
 ---
