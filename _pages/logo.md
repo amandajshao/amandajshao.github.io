@@ -1,6 +1,6 @@
 ---
-layout: page
-title: <img src='/assets/img/logo.png' alt='Logo' style='height:30px;'>
+layout: logo
+title: logo
 permalink: https://open-trust-lab.vercel.app/
 ---
 
