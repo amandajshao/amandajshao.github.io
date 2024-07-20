@@ -13,6 +13,7 @@ profile:
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+nav_order: 2
 ---
 
 Jing Shao is currently at [Shanghai Artificial Intelligence Laboratory](https://www.shlab.org.cn/) as a research scientist focusing on multi-modal foundation models and agents, with special interests in understanding various properties of current models beyond their accuracy, such as explainability, robustness, safety and generalization, towards the reliableness of AI systems. She is also an Adjunt Ph.D. supervisor at the [Shanghai Jiao Tong University](https://www.sjtu.edu.cn/), and a Co-PI of [S-Lab](https://www.ntu.edu.sg/s-lab) in [Nanyang Technological University](https://www.ntu.edu.sg/).
