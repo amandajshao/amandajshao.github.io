@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+<a href="https://icml-tifa.github.io/" target='_blank'>ICML TiFA Workshop</a>
