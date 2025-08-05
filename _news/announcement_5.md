@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-We are looking for talented 2026 [Ph.D. Student](mailto:shaojing@pjlab.org.cn)
+We are looking for talented [2026 Ph.D. Students](mailto:shaojing@pjlab.org.cn)
