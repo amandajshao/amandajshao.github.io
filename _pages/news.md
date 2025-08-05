@@ -1,12 +1,3 @@
-<!-- ---
-layout: page
-title: News
-permalink: /News/
----
-
-{% include news.liquid %} -->
-
-
 ---
 layout: page
 permalink: /news/
@@ -16,11 +7,12 @@ nav: true
 nav_order: 4
 ---
 
-<!-- **#** indicates equal contributions; **\*** indicates corresponding authors. -->
+<!-- {% include news.liquid %} -->
 
-<!-- _pages/news.md -->
-<div class="news">
+news page goes here
+<!-- <div class="news">
 
-{% news %}
 
-</div>
+<!-- {% news %} -->
+
+</div> -->

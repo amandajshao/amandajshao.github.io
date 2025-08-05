@@ -5,5 +5,4 @@ inline: true
 related_posts: false
 ---
 
-<a href="https://www.aclweb.org/" target='_blank'>We are looking for talented 2026 Ph.D. Students</a>
-
+We are looking for talented 2026 [Ph.D. Student](mailto:shaojing@pjlab.org.cn)
