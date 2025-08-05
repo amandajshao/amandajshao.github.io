@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 ---
 
-<a href="https://www.aclweb.org/" target='_blank'>ACL Outstanding Paper Award</a>
+<a href="https://2024.aclweb.org/program/best_papers/" target='_blank'>ACL Outstanding Paper Award</a>
 
