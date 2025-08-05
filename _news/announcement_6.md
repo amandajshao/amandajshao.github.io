@@ -6,4 +6,4 @@ related_posts: false
 ---
 
 
-The first frontier AI risk management framework and comprehensive implementation report applicable to general-purpose AI models and agents [Framework](https://research.ai45.shlab.org.cn/safework-f1-framework.pdf) [Practice](https://arxiv.org/pdf/2507.16534)
+The first frontier AI risk management framework and comprehensive implementation report applicable to general-purpose AI models and agents: [Framework](https://research.ai45.shlab.org.cn/safework-f1-framework.pdf), [Practice](https://arxiv.org/pdf/2507.16534)
