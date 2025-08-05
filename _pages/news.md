@@ -15,4 +15,4 @@ news page goes here
 
 <!-- {% news %} -->
 
-</div> -->
+<!-- </div> --> -->
