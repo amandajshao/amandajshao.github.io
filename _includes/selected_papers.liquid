@@ -1,3 +1,6 @@
 <div class="publications">
-  {% bibliography --group_by none --query @*[selected=true]* %}
+  {% assign selected_papers = site.bibliography | where: "selected", true | sort: "order" %}
+  {% for paper in selected_papers %}
+    {% bibliography --query @*[key={{ paper.key }}]* %}
+  {% endfor %}
 </div>

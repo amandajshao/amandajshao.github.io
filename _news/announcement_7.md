@@ -6,4 +6,4 @@ related_posts: false
 ---
 
 
-[ACL 2025 Outstanding Paper Award](https://2025.aclweb.org/program/best_papers/)
+[ACL 2025 Outstanding Paper Award: "LLMs know their vulnerabilities: Uncover Safety Gaps through Natural Distribution Shifts"](https://2025.aclweb.org/program/awards/)
