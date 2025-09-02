@@ -1,6 +1,6 @@
 <div class="publications">
-  {% for i in (1..20) %}
-    {% capture query %}@*[selected=true][order={{ i }}]*{% endcapture %}
-    {% bibliography --group_by none --query {{ query }} %}
+  {% assign paper_order = "zhang2024psysafe,ren2024llms,zhang2024reef,yang_riosworld_2025,lu2025isbench,yang2024oasis,lu2025xboundary,miao2025visual" | split: "," %}
+  {% for paper_key in paper_order %}
+    {% bibliography --query @*[key={{ paper_key }}]* %}
   {% endfor %}
 </div>
