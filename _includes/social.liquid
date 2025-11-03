@@ -127,6 +127,7 @@
     <img src="{{ site.wechat_qr | prepend: 'assets/img/' | relative_url }}" alt="WeChat QR" id="WeChatQR">
   </div>
   {% include scripts/wechatModal.liquid %}
+{% endif %}
 {% if site.rednote_id %}
   <a href="https://www.xiaohongshu.com/user/profile/{{ site.rednote_id_id }}" title="Rednote"><i class="fa-brands fa-rednote"></i></a>
 {% endif %}
