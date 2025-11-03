@@ -216,6 +216,10 @@
     {% capture link %}https://www.zotero.org/{{ site.zotero_username }}{% endcapture %}
     {% assign sameaslinks = sameaslinks | push: link %}
   {% endif %}
+  {% if site.rednote_id %}
+    {% capture link %}https://www.xiaohongshu.com/user/profile/{{ site.rednote_id_id }}{% endcapture %}
+    {% assign sameaslinks = sameaslinks | push: link %}
+
   {% if sameaslinks != blank %}
     {% assign sameaslinks = sameaslinks | split: '' %}
   {% endif %}
