@@ -317,11 +317,11 @@ ul.task-list input[type="checkbox"] {
         transition-property: all 0.2s ease-in-out;
         vertical-align: middle;
         display: inline-block;
-        width: 1em;
+        width: 2em;
         // height: 1em;
-        line-height: 1;
+        line-height: 1.5;
+        padding-bottom: 0.25em;
       }
-
       &:hover .rednote-icon {
         color: var(--global-theme-color);
       }
