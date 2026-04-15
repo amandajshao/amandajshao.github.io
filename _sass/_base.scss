@@ -877,6 +877,11 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
+// About page section spacing
+.post article > h2 {
+  margin-top: 4rem;
+}
+
 // Extra Markdown style (post Customization)
 .post {
   .post-meta {

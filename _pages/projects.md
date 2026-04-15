@@ -1,65 +1,32 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
-nav: false
-nav_order: 3
-display_categories: [work, fun]
-horizontal: false
+description: Research organized by theme across AI safety, risk analysis, and trustworthy AI.
+nav: true
+nav_order: 5
 ---
 
-<!-- pages/projects.md -->
 <div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
 
-{% else %}
+<h2 id="Attack" style="border-bottom: 1px solid var(--global-divider-color); padding-bottom: 0.5rem; margin-top: 2rem;">Attack</h2>
+<div class="publications">
+{% bibliography -q @*[topic=attack] --group_by none %}
+</div>
 
-<!-- Display projects without categories -->
+<h2 id="Evaluation" style="border-bottom: 1px solid var(--global-divider-color); padding-bottom: 0.5rem; margin-top: 2rem;">Evaluation</h2>
+<div class="publications">
+{% bibliography -q @*[topic=evaluation] --group_by none %}
+</div>
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
+<h2 id="Frontier-AI-Risk-Analysis" style="border-bottom: 1px solid var(--global-divider-color); padding-bottom: 0.5rem; margin-top: 2rem;">Frontier AI Risk Analysis</h2>
+<div class="publications">
+{% bibliography -q @*[topic=frontier] --group_by none %}
+</div>
 
-  <!-- Generate cards for each project -->
+<h2 id="Risk-Mitigation" style="border-bottom: 1px solid var(--global-divider-color); padding-bottom: 0.5rem; margin-top: 2rem;">Risk Mitigation</h2>
+<div class="publications">
+{% bibliography -q @*[topic=mitigation] --group_by none %}
+</div>
 
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
 </div>

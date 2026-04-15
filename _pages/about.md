@@ -23,7 +23,3 @@ Her research interests focus on multi-modal foundation models and agents, with s
 ---
 
 <i class="fa-solid fa-thumbtack" style="color:#b71c1c"></i><b style="color:#b71c1c"> To Prospective Students:</b> We are actively hiring Full-time Researchers/Interns working together on safety/robustness/explainablity of generative models and agents. I am also looking for talented students targeted to Master or Ph.D. degree. Please [drop me an email](mailto:shaojing@pjlab.org.cn) with your resume if you are interested.
-
----
-
-<!-- <i class="fa-solid fa-search"></i> **Jing Shao** refers to **邵婧** [(How to pronounce it?)](https://translate.google.com/?hl=en%26tab=TT#zh-CN/zh-CN/%E7%9B%9B%E5%BE%8B) in Chinese characters, while **律** may also be rendered as **Lü**, **Lv** or **Lyu** in English in different circumstances. -->
