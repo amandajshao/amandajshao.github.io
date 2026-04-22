@@ -1,6 +1,6 @@
 # 网站维护指南
 
-本文档介绍如何更新个人学术网站的三类内容：**个人简介（Bio）**、**新闻（News）**、**论文（Publications）**，以及它们如何自动同步到网站各页面。
+本文档介绍如何更新个人学术网站的四类内容：**个人简介（Bio）**、**新闻（News）**、**论文（Publications）**、**研究方向页（Projects）**，以及它们如何自动同步到网站各页面。
 
 ---
 
@@ -13,7 +13,12 @@
    - [BibTeX 字段说明](#bibtex-字段说明)
    - [topic 字段与页面映射](#topic-字段与页面映射)
    - [让论文出现在主页精选列表](#让论文出现在主页精选列表)
-5. [推送到 GitHub 后的流程](#推送到-github-后的流程)
+5. [管理 Projects 页（研究方向）](#管理-projects-页研究方向)
+   - [Projects 页的工作原理](#projects-页的工作原理)
+   - [将论文归入某个研究方向](#将论文归入某个研究方向)
+   - [新增一个研究方向分类](#新增一个研究方向分类)
+   - [修改或删除某个研究方向](#修改或删除某个研究方向)
+6. [推送到 GitHub 后的流程](#推送到-github-后的流程)
 
 ---
 
@@ -173,6 +178,114 @@ order    = {1},
 
 ---
 
+## 管理 Projects 页（研究方向）
+
+### Projects 页的工作原理
+
+Projects 页（`_pages/projects.md`）**不需要手动维护论文列表**。它通过 `topic` 字段自动从 `Publication.bib` 中筛选对应论文并展示。整个流转关系如下：
+
+```
+Publication.bib 中的 topic 字段
+        ↓
+Projects 页按 topic 自动分类展示
+        ↓
+每篇论文条目左上角也会显示对应的 topic 标签，点击可跳转到 Projects 页对应分类
+```
+
+也就是说，**给论文加上正确的 `topic` 值，它就自动出现在 Projects 页的对应分类下**，无需其他操作。
+
+---
+
+### 将论文归入某个研究方向
+
+只需在 `Publication.bib` 对应条目中设置 `topic` 字段即可：
+
+```bibtex
+@article{your_key,
+  author = {...},
+  title  = {...},
+  year   = {2025},
+  topic  = {attack},   ← 改这里
+}
+```
+
+当前支持的分类及效果：
+
+| `topic` 值 | Projects 页显示位置 | 论文标签显示 |
+|---|---|---|
+| `attack` | Attack 分类 | Attack（可点击） |
+| `evaluation` | Evaluation 分类 | Evaluation（可点击） |
+| `frontier` | Frontier AI Risk Analysis 分类 | Frontier AI Risk Analysis（可点击） |
+| `mitigation` | Risk Mitigation 分类 | Risk Mitigation（可点击） |
+| `cv` | 不出现在 Projects 页 | CV（纯文本标签） |
+
+---
+
+### 新增一个研究方向分类
+
+如果未来有新的研究方向（例如 `alignment`），需要同步修改 **两个文件**：
+
+#### 第一步：在 `_pages/projects.md` 中添加新分类区块
+
+打开 `_pages/projects.md`，在现有分类后面添加：
+
+```html
+<h2 id="Alignment" style="border-bottom: 1px solid var(--global-divider-color); padding-bottom: 0.5rem; margin-top: 2rem;">Alignment</h2>
+<div class="publications">
+{% bibliography -q @*[topic=alignment] --group_by none %}
+</div>
+```
+
+> 注意：`id="Alignment"` 用于页面内锚点跳转，`topic=alignment` 与 BibTeX 中的 `topic` 值一致。
+
+#### 第二步：在 `_layouts/bib.liquid` 中添加标签映射
+
+打开 `_layouts/bib.liquid`，找到 `{% if entry.topic %}` 块，在现有 `elsif` 分支中添加新条目：
+
+```liquid
+{% elsif entry.topic == 'alignment' %}
+  {% assign topic_label = 'Alignment' %}
+  {% assign topic_url = '/projects/#Alignment' %}
+```
+
+完整示例（找到这段并在其中插入）：
+
+```liquid
+{% if entry.topic == 'attack' %}
+  ...
+{% elsif entry.topic == 'mitigation' %}
+  ...
+{% elsif entry.topic == 'alignment' %}        ← 新增这三行
+  {% assign topic_label = 'Alignment' %}
+  {% assign topic_url = '/projects/#Alignment' %}
+{% elsif entry.topic == 'cv' %}
+  ...
+{% endif %}
+```
+
+#### 第三步：在论文条目中使用新 topic
+
+```bibtex
+topic = {alignment},
+```
+
+完成后推送，新分类即自动生效。
+
+---
+
+### 修改或删除某个研究方向
+
+**重命名分类：**
+1. 在 `_pages/projects.md` 中修改对应 `<h2>` 的标题文字和 `id` 属性
+2. 在 `_layouts/bib.liquid` 中同步修改 `topic_label` 和 `topic_url`
+3. 在 `Publication.bib` 中批量替换相关条目的 `topic` 值（如从 `attack` 改为 `adversarial`）
+
+**删除某个分类：**
+1. 在 `_pages/projects.md` 删除对应的 `<h2>` 和 `{% bibliography %}` 区块
+2. 相关论文的 `topic` 值保留或改为 `cv`（不影响 Publications 页显示）
+
+---
+
 ## 推送到 GitHub 后的流程
 
 完成文件修改后，在终端执行：
@@ -192,10 +305,12 @@ git push origin master
 | 修改的内容 | 自动更新的页面 |
 |---|---|
 | `Publication.bib` 中任意条目 | Publications 页（全部论文按年份） |
-| `topic={attack/evaluation/frontier/mitigation}` | Projects 页对应分类 |
+| `topic={attack/evaluation/frontier/mitigation}` | Projects 页对应分类 + 论文条目上的可点击标签 |
+| `topic={cv}` | 论文条目上显示 CV 纯文本标签（不进入 Projects 页） |
 | `selected={true}` | About 主页精选论文列表 |
 | `_pages/about.md` 正文 | About 主页个人简介 |
 | `_news/` 下的文件 | About 主页 News 列表 |
+| `_pages/projects.md` | Projects 页结构和分类标题 |
 
 ---
 
