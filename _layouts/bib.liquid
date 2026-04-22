@@ -60,17 +60,8 @@
       {% elsif entry.topic == 'mitigation' %}
         {% assign topic_label = 'Risk Mitigation' %}
         {% assign topic_url = '/projects/#Risk-Mitigation' %}
-      {% elsif entry.topic == 'foundation' %}
-        {% assign topic_label = 'Foundation Models' %}
-        {% assign topic_url = '' %}
-      {% elsif entry.topic == 'multimodal' %}
-        {% assign topic_label = 'Multimodal' %}
-        {% assign topic_url = '' %}
-      {% elsif entry.topic == 'nlp' %}
-        {% assign topic_label = 'NLP' %}
-        {% assign topic_url = '' %}
-      {% elsif entry.topic == 'vision' %}
-        {% assign topic_label = 'Vision' %}
+      {% elsif entry.topic == 'cv' %}
+        {% assign topic_label = 'CV' %}
         {% assign topic_url = '' %}
       {% else %}
         {% assign topic_label = entry.topic %}
