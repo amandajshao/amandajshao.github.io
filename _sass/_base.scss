@@ -877,6 +877,29 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
+// Topic tags on publications
+.topic-tags {
+  margin-bottom: 0.3rem;
+}
+
+.topic-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid var(--global-theme-color);
+  color: var(--global-theme-color);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+
+  &:hover {
+    background-color: var(--global-theme-color);
+    color: var(--global-bg-color);
+    text-decoration: none;
+  }
+}
+
 // About page section spacing
 .post article > h2 {
   margin-top: 4rem;

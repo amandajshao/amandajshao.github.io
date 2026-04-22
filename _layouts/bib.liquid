@@ -182,6 +182,45 @@
       {{ entry.note | strip }}
     </div>
 
+    <!-- Topic Tag -->
+    {% if entry.topic %}
+      {% if entry.topic == 'attack' %}
+        {% assign topic_label = 'Attack' %}
+        {% assign topic_url = '/projects/#Attack' %}
+      {% elsif entry.topic == 'evaluation' %}
+        {% assign topic_label = 'Evaluation' %}
+        {% assign topic_url = '/projects/#Evaluation' %}
+      {% elsif entry.topic == 'frontier' %}
+        {% assign topic_label = 'Frontier AI Risk Analysis' %}
+        {% assign topic_url = '/projects/#Frontier-AI-Risk-Analysis' %}
+      {% elsif entry.topic == 'mitigation' %}
+        {% assign topic_label = 'Risk Mitigation' %}
+        {% assign topic_url = '/projects/#Risk-Mitigation' %}
+      {% elsif entry.topic == 'foundation' %}
+        {% assign topic_label = 'Foundation Models' %}
+        {% assign topic_url = '' %}
+      {% elsif entry.topic == 'multimodal' %}
+        {% assign topic_label = 'Multimodal' %}
+        {% assign topic_url = '' %}
+      {% elsif entry.topic == 'nlp' %}
+        {% assign topic_label = 'NLP' %}
+        {% assign topic_url = '' %}
+      {% elsif entry.topic == 'vision' %}
+        {% assign topic_label = 'Vision' %}
+        {% assign topic_url = '' %}
+      {% else %}
+        {% assign topic_label = entry.topic %}
+        {% assign topic_url = '' %}
+      {% endif %}
+      <div class="topic-tags">
+        {% if topic_url != '' %}
+          <a href="{{ topic_url }}" class="topic-tag">{{ topic_label }}</a>
+        {% else %}
+          <span class="topic-tag">{{ topic_label }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.award %}
